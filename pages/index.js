@@ -6,23 +6,16 @@ import {
   rawCookies,
   cookieToString,
   COOKIE_KEYS,
-} from '../utils/cookie';
+} from 'src/utils/cookie';
 const FormData = require('form-data');
 
 export default function Index({ json }) {
   useEffect(() => {
     if (typeof window === 'object') {
-      console.log(typeof window);
-      const formData = new FormData();
-      formData.append('PAGEN_1', 0);
-      formData.append('perpage', 100);
-      formData.append('sectionId', 6505);
-      formData.append('filter%5BBRAND%5D%5B%5D', '3162214');
       COOKIE_KEYS.forEach((key) => {
         Cookie.set(key, processCookieValue(key, rawCookies[key]));
       });
-      fetch('/api/ajax/react/productList', {
-        body: formData,
+      fetch('/api/ajax/react/basket', {
         credentials: 'include',
         method: 'POST',
       })
