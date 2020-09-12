@@ -1,4 +1,4 @@
-import { InjectStoreContext } from '../store'
+import { InjectStoreContext } from '../store';
 
 export default function App({ Component, pageProps }) {
   // If your page has Next.js data fetching methods returning a state for the Mobx store,
@@ -7,5 +7,5 @@ export default function App({ Component, pageProps }) {
     <InjectStoreContext initialData={pageProps.initialStoreData}>
       <Component {...pageProps} />
     </InjectStoreContext>
-  )
+  );
 }
